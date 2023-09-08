@@ -11,6 +11,7 @@
    --black:black;
    --gray:whitesmoke;
    --lightblack:#333333;
+   --lightorange:#fcb900;
 }
 
 ::selection {
@@ -24,7 +25,7 @@
 }
 
 /* Main Home Page */
-
+/* Mobile first design */
 .hero-section {
   background-color: var(--gray);
   width: 100%;
@@ -165,12 +166,44 @@
 .reviews {
   background-color: var(--gray);
   text-align: center;
-  padding: 2em;
+  padding: 1.6em 0.7em;
 }
 
 .reviews h1 {
   font-family: 'Times New Roman', Times, serif;
   font-size: 1.4em;
+}
+
+.review-card {
+  background-color: var(--white);
+  padding: 1em;
+  margin: 1em;
+  border: 2px solid var(--white);
+  border-radius: 8px;
+}
+
+.ratings {
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  padding: 1em;
+}
+
+.review-icon {
+   color: var(--lightorange);
+   font-size: 1.2em;
+}
+
+.client-bio-section {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 0.7em;
+}
+
+.client-name {
+  padding-left: 0.7em;
+  font-weight:600;
 }
 
 /* Home Page */
