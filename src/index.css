@@ -227,13 +227,15 @@ header {
   height: 10vh;
 }
 
-.nav-links ul {
+.nav-left ul,
+.nav-right ul {
   display: flex;
   list-style: none;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
 }
 
-.nav-links li {
+.nav-left ul li, 
+.nav-right ul li {
   display: block;
 }
 
@@ -250,6 +252,37 @@ header {
 
 .link:hover {
   color: var(--green);
+}
+
+.nav-right {
+  display:flex;
+  align-items: center;
+  justify-content:center;
+}
+
+.cart-icon-container {
+  position: relative;
+  text-align: right;
+}
+
+.cart-icon {
+  margin-left: 1em;
+  color: var(--green);
+  font-size: 1.5em;
+}
+
+.cart-items-count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -5px;
+  left: 90%;
+  border-radius: 50%;
+  background-color: var(--green);
+  color: var(--white);
+  padding: 2px 5px;
+  font-size: 0.8em;
 }
 
 .nav-menu {
@@ -414,13 +447,55 @@ footer {
 /* Individual Product Section */
 
 .product-container {
+    height: 110vh;
     min-height: 100vh;
     background-color: var(--gray);
     width: 100%;
 }
 
+.success-msg-container {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto; 
+  position: absolute;
+  top:20%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  border-top: 5px solid var(--green);
+}
+
+.success-msg-content-container {
+   display: flex;
+   padding-top:1.5em;
+}
+
+.success-icon {
+  position: relative;
+  top: -5px;
+  color: var(--green);
+  font-size: 1.7em;
+}
+
+.view-cart-btn {
+  position: absolute;
+  top: 1em;
+  left: 91%;
+  background-color: var(--green);
+  color: var(--white);
+  padding: 0.4em 1em;
+  border: 3px solid var(--green);
+  border-radius: 10px;
+  font-size: 1em;
+}
+
 .product-details-container {
     display: flex;
+}
+
+.product-details-container-additional {
+  position: absolute;
+  top: 150px;
 }
 
 .product-image-container {
@@ -458,23 +533,29 @@ footer {
    font-weight: 400;
 }
 
-.product-details input[type="number"] {
-   height: 34px;
-   width: 10%;
-   padding-left: 1em;
-   border: 2px solid var(--gray);
-   outline: none;
+.btns-container {
+  display: flex;
+  gap: 0;
+  margin-top: 0.4em;
 }
 
-.product-details button {
-   margin: 0.8em;
+.product-quantity-btn {
+   height: 34px;
+   width: 30%;
+   border:1px solid var(--black);
+   padding:0 1em;
+}
+
+.add-to-cart-btn {
+   margin: 0;
+   margin-left: -110px;
    width: 40%;
    background-color: var(--green);
    color: var(--white);
    font-size: 1.1rem;
    height: 34px;
    padding: 0.2em 0.5em 0.2em 0.5em;
-   border: 3px soild var(--green);
+   border: 3px solid var(--green);
    border-radius: 5px;
 }
 

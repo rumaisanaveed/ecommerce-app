@@ -134,6 +134,9 @@ function App() {
   const [ searchGroceries , setSearchGroceries ] = useState([]);
   const [ filterToiletries, setFilteredToiletries ] = useState([]);
   const [ searchToiletries, setSearchToiletries ] = useState([]);
+  const [ productCount, setProductCount ] = useState(1);
+  const [ cartItemsCount, setCartItemsCount ] = useState(0);
+  const [ isAddToCart, setIsAddToCart ] = useState(false);
 
   // It will get executed whenever the state of products will be changed 
   useEffect(() => {
@@ -170,6 +173,8 @@ function App() {
           <Route path="/" element={<Layout 
               search={search}
               setSearch={setSearch}
+              cartItemsCount={cartItemsCount}
+              setCartItemsCount={setCartItemsCount}
           />}>
               <Route index element={<Main />} />
               <Route path="/home">
@@ -177,7 +182,13 @@ function App() {
                       products={searchResults}
                   />}/>
                   <Route path=":title" element={<ProductPage 
+                      productCount={productCount}
+                      setProductCount={setProductCount}
                       products={searchResults}
+                      cartItemsCount={cartItemsCount}
+                      setCartItemsCount={setCartItemsCount}
+                      isAddToCart={isAddToCart}
+                      setIsAddToCart={setIsAddToCart}
                   />}/>
               </Route>
               <Route path="/groceries">
@@ -186,6 +197,8 @@ function App() {
                 />}/>
                 <Route path=":title" element={<ProductPage
                     products={filterGroceries}
+                    cartItemsCount={cartItemsCount}
+                    setCartItemsCount={setCartItemsCount}
                 />}/>
               </Route>
               <Route path="/toiletries">
