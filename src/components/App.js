@@ -138,30 +138,33 @@ function App() {
   const [ cartItemsCount, setCartItemsCount ] = useState(0);
   const [ isAddToCart, setIsAddToCart ] = useState(false);
 
-  // It will get executed whenever the state of products will be changed 
+  // Result after the user searches a product 
   useEffect(() => {
     const filteredResults = products.filter((product) =>
       ((product.title).toLowerCase()).includes(search.toLowerCase()));
     setSearchResults(filteredResults);
   },[ products, search ])
 
+  // Results of the groceries page 
   useEffect(() => {
     const groceries = products.filter((product) => ((product.category) === "groceries"))
     setFilteredGroceries(groceries);
   }, [products])
-
+ 
+  // Results of the groceries page after user searches a product on the page 
   useEffect(() => {
     const searchedGroceries = filterGroceries.filter((searchedGrocery) =>
       ((searchedGrocery.title).toLowerCase()).includes(search.toLowerCase()));
     setSearchGroceries(searchedGroceries);
-    console.log(searchedGroceries);
   },[ filterGroceries, search ])
 
+  // Results of the toiletries page 
   useEffect(() => {
     const toiletries = products.filter((product) => ((product.category) === "toiletries"))
     setFilteredToiletries(toiletries);
   }, [products])
 
+  // Results of the toiletries page after the search 
   useEffect(() => {
     const searchedToiletries = filterToiletries.filter((searchedToiletry) =>
       ((searchedToiletry.title).toLowerCase()).includes(search.toLowerCase()));
@@ -182,13 +185,7 @@ function App() {
                       products={searchResults}
                   />}/>
                   <Route path=":title" element={<ProductPage 
-                      productCount={productCount}
-                      setProductCount={setProductCount}
                       products={searchResults}
-                      cartItemsCount={cartItemsCount}
-                      setCartItemsCount={setCartItemsCount}
-                      isAddToCart={isAddToCart}
-                      setIsAddToCart={setIsAddToCart}
                   />}/>
               </Route>
               <Route path="/groceries">
@@ -197,8 +194,12 @@ function App() {
                 />}/>
                 <Route path=":title" element={<ProductPage
                     products={filterGroceries}
+                    productCount={productCount}
+                    setProductCount={setProductCount}
                     cartItemsCount={cartItemsCount}
                     setCartItemsCount={setCartItemsCount}
+                    isAddToCart={isAddToCart}
+                    setIsAddToCart={setIsAddToCart}
                 />}/>
               </Route>
               <Route path="/toiletries">

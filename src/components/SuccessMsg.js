@@ -1,10 +1,10 @@
 import ViewCartBtn from "./buttons/ViewCartBtn"
-import {TiTick} from 'react-icons/ti'
+import { TiTick } from 'react-icons/ti'
 
 const SuccessMsg = ( { productCount, productName }) => {
-
   return (
-    <div className="success-msg-container">
+      <div className="success-msg-container">
+        <div className="success-bar"></div>
         <div className="success-msg-content-container">
             <div classname="success-icon-container"><TiTick className="success-icon"/></div>
             { 
@@ -15,9 +15,9 @@ const SuccessMsg = ( { productCount, productName }) => {
             }
         </div>
         <div className="view-cart-btn-in-success-msg">
-               <ViewCartBtn />
+              <ViewCartBtn />
         </div>
-    </div>
+      </div>
   )
 }
 
