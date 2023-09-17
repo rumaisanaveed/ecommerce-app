@@ -1,21 +1,23 @@
 import Products from '../components/product_listings/Products'
 
-const Home = ({ products }) => {
+const Home = ({ fetchError, isLoading, products }) => {
   return (
     <main className='home'>
-       {products.length ? (
+      {isLoading && <p>Loading products....</p>}
+      {!isLoading && fetchError && <p>{fetchError}</p>}
+      {!isLoading && !fetchError && (products.length) ? (
           <Products products={products} />
        )
          : 
        (
         <main className='product-not-found'>
           <p className='no-data'>
-              No products to display
+            No products to display
           </p>
-        </main>
+        </main> 
        )
-       }
-    </main>
+      }
+    </main> 
   )
 }
 

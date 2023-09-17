@@ -1,15 +1,15 @@
-import { RxCross1 } from 'react-icons/rx'
-import CartBtn from './buttons/CartBtn'
+import { RxCross1 } from 'react-icons/rx';
+import CartBtn from './buttons/CartBtn';
 import { useState } from 'react';
-import CartItem from './CartItem'
+import CartItem from './CartItem';
 import ViewCartBtn from './buttons/ViewCartBtn';
-import CheckOutBtn from './buttons/CheckOutBtn'
+import CheckOutBtn from './buttons/CheckOutBtn';
 
 const Cart = ({ productImg, productName, productQuantity, productPrice, noOfCartItems }) => {
   const [ isCartClosed, setIsCartClosed ] = useState(true);
   
   const hideCart = () => {
-     setIsCartClosed(false);
+    setIsCartClosed(false);
   }
 
   return (

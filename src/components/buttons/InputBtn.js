@@ -7,6 +7,7 @@ const InputBtn = ({ productCount, setProductCount }) => {
                 className="product-quantity-btn"
                 type="number"
                 value={productCount}
+                defaultValue={1}
                 onChange={(e) => setProductCount(e.target.value)}
             />
         </form>

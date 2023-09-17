@@ -7,164 +7,52 @@ import Toiletries from '../pages/Toiletries';
 import NotFound from '../pages/NotFound';
 import Main from '../pages/Main';
 import ProductPage from "../pages/ProductPage";
+import useAxiosFetch from '../hooks/useAxiosFetch';
 
 function App() {
-  const [ products, setProducts ] = useState([
-      {
-          id : 1, 
-          image : "/images/cashewButter.jpg",
-          title : "Cashew Butter",
-          price : "$20",
-          category : "groceries"
-      },
-
-      {
-        id : 2, 
-        image : "/images/coffeeAsorted.jpg",
-        title : "Coffee Asorted",
-        price : "$50",
-        category : "groceries"
-      },
-
-      {
-        id : 3, 
-        image : "/images/cookies.jpg",
-        title : "Cookies",
-        price : "$25",
-        category : "groceries"
-      },
-      
-      {
-      id : 4, 
-      image : "/images/edibleOil.jpg",
-      title : "Edible Oil",
-      price : "$34",
-      category : "groceries"
-      },
-
-      {
-      id : 5, 
-      image : "/images/eggs.jpg",
-      title : "Eggs",
-      price : "$50",
-      category : "groceries"
-      },
-
-      {
-      id : 6, 
-      image : "/images/gucciPerfume.jpg",
-      title : "Gucci Perfume",
-      price : "$100",
-      category : "toiletries"
-      },
-
-      {
-      id : 7, 
-      image : "/images/himalayaFacewash.jpg",
-      title : "Himalaya Face Wash",
-      price : "$30",
-      category : "toiletries"
-      },
-
-      {
-      id : 8, 
-      image : "/images/lorealShampoo.jpg",
-      title : "Loreal Shampoo",
-      price : "$20",
-      category : "toiletries"
-      },
-      {
-      id : 9, 
-      image : "/images/missDiorPerfume.png",
-      title : "Miss Dior Perfume",
-      price : "$120",
-      category : "toiletries"
-      },
-      {
-      id : 10, 
-      image : "/images/orangeJuice.jpg",
-      title : "Orange Juice",
-      price : "$35",
-      category : "groceries"
-      },
-      {
-      id : 11, 
-      image : "/images/organicHoney.jpg",
-      title : "Organic Honey",
-      price : "$55",
-      category : "groceries"
-      },
-
-      {
-      id : 12, 
-      image : "/images/panteneShampoo.jpg",
-      title : "Pantene Shampoo",
-      price : "$15",
-      category : "toiletries"
-      },
-
-      {
-      id : 13, 
-      image : "/images/pondsFacewash.jpg",
-      title : "Ponds Face Wash",
-      price : "$25",
-      category : "toiletries"
-      },
-
-      {
-      id : 14, 
-      image : "/images/sanitizer.jpg",
-      title : "Sanitizer",
-      price : "$30",
-      category : "toiletries"
-      },
-
-      {
-      id : 15, 
-      image : "/images/redChillies.jpg",
-      title : "Red Chillies",
-      price : "$10",
-      category : "groceries"
-      }
-])
-
+  const [ products, setProducts ] = useState([]);
   const [ search, setSearch ] = useState('');
   const [ searchResults, setSearchResults ] = useState([]);
   const [ filterGroceries, setFilteredGroceries ] = useState([]);
   const [ searchGroceries , setSearchGroceries ] = useState([]);
   const [ filterToiletries, setFilteredToiletries ] = useState([]);
   const [ searchToiletries, setSearchToiletries ] = useState([]);
-  const [ productCount, setProductCount ] = useState(1);
+  // const [ productCount, setProductCount ] = useState(1);
   const [ cartItemsCount, setCartItemsCount ] = useState(0);
-  const [ isAddToCart, setIsAddToCart ] = useState(false);
+  // const [ isAddToCart, setIsAddToCart ] = useState(false);
 
-  // Result after the user searches a product 
+  // Fetching the data from api 
+  const { data, fetchError, isLoading } = useAxiosFetch("http://localhost:3500/items");
+  console.log(data);
+
+  // Setting the data into a state variable 
+  useEffect(() => {
+      setProducts(data);
+  }, [ data ])
+  console.log(products);
+
   useEffect(() => {
     const filteredResults = products.filter((product) =>
       ((product.title).toLowerCase()).includes(search.toLowerCase()));
     setSearchResults(filteredResults);
-  },[ products, search ])
+  }, [ products, search ])
 
-  // Results of the groceries page 
   useEffect(() => {
     const groceries = products.filter((product) => ((product.category) === "groceries"))
     setFilteredGroceries(groceries);
-  }, [products])
- 
-  // Results of the groceries page after user searches a product on the page 
+  }, [ products ])
+
   useEffect(() => {
     const searchedGroceries = filterGroceries.filter((searchedGrocery) =>
       ((searchedGrocery.title).toLowerCase()).includes(search.toLowerCase()));
     setSearchGroceries(searchedGroceries);
-  },[ filterGroceries, search ])
+  }, [ filterGroceries, search ])
 
-  // Results of the toiletries page 
   useEffect(() => {
     const toiletries = products.filter((product) => ((product.category) === "toiletries"))
     setFilteredToiletries(toiletries);
   }, [products])
 
-  // Results of the toiletries page after the search 
   useEffect(() => {
     const searchedToiletries = filterToiletries.filter((searchedToiletry) =>
       ((searchedToiletry.title).toLowerCase()).includes(search.toLowerCase()));
@@ -178,36 +66,55 @@ function App() {
               setSearch={setSearch}
               cartItemsCount={cartItemsCount}
               setCartItemsCount={setCartItemsCount}
-          />}>
+          />}>  
               <Route index element={<Main />} />
               <Route path="/home">
                   <Route index element={<Home 
+                      fetchError={fetchError}
+                      isLoading={isLoading}
                       products={searchResults}
                   />}/>
                   <Route path=":title" element={<ProductPage 
                       products={searchResults}
+                      // productCount={productCount}
+                      // setProductCount={setProductCount}
+                      // cartItemsCount={cartItemsCount}
+                      // setCartItemsCount={setCartItemsCount}
+                      // isAddToCart={isAddToCart}
+                      // setIsAddToCart={setIsAddToCart}
                   />}/>
               </Route>
+              <Route path="/cart" ></Route>
               <Route path="/groceries">
                 <Route index element={<Groceries
+                      fetchError={fetchError}
+                      isLoading={isLoading}
                       groceries={searchGroceries}
                 />}/>
                 <Route path=":title" element={<ProductPage
                     products={filterGroceries}
-                    productCount={productCount}
-                    setProductCount={setProductCount}
-                    cartItemsCount={cartItemsCount}
-                    setCartItemsCount={setCartItemsCount}
-                    isAddToCart={isAddToCart}
-                    setIsAddToCart={setIsAddToCart}
+                    // productCount={productCount}
+                    // setProductCount={setProductCount}
+                    // cartItemsCount={cartItemsCount}
+                    // setCartItemsCount={setCartItemsCount}
+                    // isAddToCart={isAddToCart}
+                    // setIsAddToCart={setIsAddToCart}
                 />}/>
               </Route>
               <Route path="/toiletries">
                  <Route index element={<Toiletries
+                    fetchError={fetchError}
+                    isLoading={isLoading}
                     toiletries={searchToiletries}
                  />}/>
                  <Route path=":title" element={<ProductPage 
                     products={searchToiletries}
+                    // productCount={productCount}
+                    // setProductCount={setProductCount}
+                    // cartItemsCount={cartItemsCount}
+                    // setCartItemsCount={setCartItemsCount}
+                    // isAddToCart={isAddToCart}
+                    // setIsAddToCart={setIsAddToCart}
                  />}/>
               </Route>
           </Route>

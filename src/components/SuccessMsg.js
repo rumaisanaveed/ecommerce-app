@@ -6,7 +6,7 @@ const SuccessMsg = ( { productCount, productName }) => {
       <div className="success-msg-container">
         <div className="success-bar"></div>
         <div className="success-msg-content-container">
-            <div classname="success-icon-container"><TiTick className="success-icon"/></div>
+            <div className="success-icon-container"><TiTick className="success-icon"/></div>
             { 
               productCount > 1 ?
               (<p>{productCount} x {productName} has been added to your cart</p>)
