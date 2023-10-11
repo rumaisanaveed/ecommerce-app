@@ -1,0 +1,3 @@
+Issues to fix 
+make the main page responsive (Done)
+refactor code using context api and then fix add to cart functionality 

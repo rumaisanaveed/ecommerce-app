@@ -1,9 +1,5 @@
 const CartBtn = () => {
-  return (
-    <button className="cart-btn">
-        Continue Shopping 
-    </button>
-  )
-}
+  return <button className="cart-btn">Continue Shopping</button>;
+};
 
-export default CartBtn
+export default CartBtn;

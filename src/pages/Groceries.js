@@ -1,21 +1,22 @@
-import Products from "../components//product_listings/Products"
+import Products from "../components//product_listings/Products";
+import SearchBox from "../components/searchBox";
 
-const Groceries = ({ groceries }) => {
+const Groceries = ({ search, setSearch, fetchError, isLoading, groceries }) => {
   console.log(groceries);
   return (
     <main className="home">
-       {groceries.length ? (
-          <Products products={groceries}/>
-       )
-         : 
-       (
-          <p className='no-data'>
-            No Products to display.
-          </p>
-       )
-       }
+      <SearchBox search={search} setSearch={setSearch} />
+      {isLoading && <p>Products are loading...</p>}
+      {!isLoading && fetchError && <p>{fetchError}</p>}
+      {!isLoading && !fetchError && groceries.length ? (
+        <Products products={groceries} />
+      ) : (
+        <main className="product-not-found">
+          <p className="no-data">No products to display....</p>
+        </main>
+      )}
     </main>
-  )
-}
+  );
+};
 
-export default Groceries
+export default Groceries;

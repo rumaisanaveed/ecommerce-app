@@ -1,9 +1,5 @@
 const ShoppingBtn = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+  return <div></div>;
+};
 
-export default ShoppingBtn
+export default ShoppingBtn;
