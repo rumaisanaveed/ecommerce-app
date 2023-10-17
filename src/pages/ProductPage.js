@@ -1,18 +1,29 @@
 import { useParams } from "react-router-dom";
 import AddToCartBtn from "../components/buttons/AddToCartBtn";
-import { useState } from "react";
-import Cart from "../components/Cart";
+import { useContext, useState } from "react";
+import DataContext from "../context/DataContext";
 
-const ProductPage = ({
-  products,
-  productCount,
-  setProductCount,
-  cartItemsCount,
-  setCartItemsCount,
-  isAddToCart,
-  setIsAddToCart,
-}) => {
+const ProductPage = () => {
+  const { searchResults, filterGroceries, searchToiletries } =
+    useContext(DataContext);
+
+  // Checking the current page
   const { title } = useParams();
+  const isHomePage =
+    !title.includes("groceries") && !title.includes("toiletries");
+  const isGroceriesPage = title.includes("groceries");
+
+  // Assigining products according to the current page
+  let products;
+  if (isHomePage) {
+    products = searchResults;
+  } else if (isGroceriesPage) {
+    products = filterGroceries;
+  } else {
+    products = searchToiletries;
+  }
+
+  // Finding which product has been added to cart
   const product = products.find(
     (product) =>
       product.title ===
@@ -21,14 +32,11 @@ const ProductPage = ({
         .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
         .join(" ")
   );
-  const [cartItems, setCartItems] = useState([]);
-  const [noOfCartItems, setNoOfCartItems] = useState(0);
 
   return (
     <>
       {product && (
         <main className="product-container">
-          {isAddToCart && alert("Item has been added to your cart.")}
           <section className={`product-details-container`}>
             <div className="product-image-container">
               <img className="product-img" src={product.image} alt="" />
@@ -43,24 +51,7 @@ const ProductPage = ({
                 explicabo nulla cupiditate exercitationem neque iusto?
               </p>
               <div className="btns-container">
-                <AddToCartBtn
-                  product={product}
-                  cartItems={cartItems}
-                  setCartItems={setCartItems}
-                  cartItemsCount={cartItemsCount}
-                  setCartItemsCount={setCartItemsCount}
-                  isAddToCart={isAddToCart}
-                  setIsAddToCart={setIsAddToCart}
-                  productCount={productCount}
-                  noOfCartItems={noOfCartItems}
-                  setNoOfCartItems={setNoOfCartItems}
-                />
-                <Cart
-                  productImg={product.image}
-                  productName={product.title}
-                  productPrice={product.price}
-                  noOfCartItems={noOfCartItems}
-                />
+                <AddToCartBtn product={product} />
               </div>
             </div>
           </section>

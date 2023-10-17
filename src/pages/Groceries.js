@@ -1,15 +1,19 @@
+import { useContext } from "react";
 import Products from "../components//product_listings/Products";
+import DataContext from "../context/DataContext";
 import SearchBox from "../components/searchBox";
 
-const Groceries = ({ search, setSearch, fetchError, isLoading, groceries }) => {
-  console.log(groceries);
+const Groceries = () => {
+  const { search, setSearch, fetchError, isLoading, searchGroceries } =
+    useContext(DataContext);
+  // console.log(searchGroceries);
   return (
     <main className="home">
-      <SearchBox search={search} setSearch={setSearch} />
+      {/* <SearchBox search={search} setSearch={setSearch} /> */}
       {isLoading && <p>Products are loading...</p>}
       {!isLoading && fetchError && <p>{fetchError}</p>}
-      {!isLoading && !fetchError && groceries.length ? (
-        <Products products={groceries} />
+      {!isLoading && !fetchError && searchGroceries.length ? (
+        <Products products={searchGroceries} />
       ) : (
         <main className="product-not-found">
           <p className="no-data">No products to display....</p>

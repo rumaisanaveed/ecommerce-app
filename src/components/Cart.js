@@ -1,54 +1,58 @@
 import { RxCross1 } from "react-icons/rx";
-import CartBtn from "./buttons/CartBtn";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import CartItem from "./CartItem";
 import ViewCartBtn from "./buttons/ViewCartBtn";
 import CheckOutBtn from "./buttons/CheckOutBtn";
-import { RiH1 } from "react-icons/ri";
+import CartContext from "../context/CartContext";
 
-const Cart = ({
-  productImg,
-  productName,
-  productQuantity,
-  productPrice,
-  noOfCartItems,
-}) => {
+const Cart = () => {
+  // Handling the cart close and open
   const [isCartClosed, setIsCartClosed] = useState(true);
-
   const hideCart = () => {
     setIsCartClosed(false);
   };
 
+  // Cart data consumer
+  const { cartData, noOfCartItems } = useContext(CartContext);
+
   return (
     <>
-      {console.log(noOfCartItems)}
-      {console.log(isCartClosed)}
       {isCartClosed && (
         <div className="cart-container">
           <div className="cart-first-row">
             <h1>Shopping Cart</h1>
             <RxCross1 className="cross-icon" onClick={hideCart} />
           </div>
-          {/* Cart Body */}
+          {/* if cart has no items */}
           {noOfCartItems === 0 && (
             <>
-              <h1>Hey 2</h1>
+              {/* {console.log(noOfCartItems)} */}
               <div className="cart-msg">
                 <p>No products in the cart</p>
               </div>
-              <CartBtn />
             </>
           )}
+
+          {/* If cart has items */}
           {noOfCartItems > 0 && (
             <>
-              <h1>Hey 3</h1>
+              {/* {console.log(noOfCartItems)} */}
               <div className="cart-body">
-                <CartItem
-                  productImg={productImg}
-                  productName={productName}
-                  productQuantity={productQuantity}
-                  productPrice={productPrice}
-                />
+                {cartData.map((item, index) => {
+                  // console.log(item);
+                  return (
+                    <CartItem
+                      key={index}
+                      productImg={item.image}
+                      productName={item.title}
+                      productPrice={item.price}
+                    />
+                  );
+                })}
+                <div className="price-container">
+                  <p>Subtotal:</p>
+                  <p>$18</p>
+                </div>
                 <div className="cart-btns">
                   <ViewCartBtn />
                   <CheckOutBtn />

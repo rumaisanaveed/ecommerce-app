@@ -1,23 +1,18 @@
+import { useContext } from "react";
 import Footer from "../layout/Footer";
 import Header from "../layout/Header";
+import Cart from "./Cart";
 import { Outlet } from "react-router-dom";
+import CartContext from "../context/CartContext";
 
-const Layout = ({
-  search,
-  setSearch,
-  handleSearch,
-  cartItemsCount,
-  setCartItemsCount,
-}) => {
+const Layout = () => {
+  const { isCartVisible } = useContext(CartContext);
   return (
     <div className="container">
-      <Header
-        handleSearch={handleSearch}
-        cartItemsCount={cartItemsCount}
-        setCartItemsCount={setCartItemsCount}
-      />
+      <Header />
       <Outlet />
       <Footer />
+      {isCartVisible && <Cart />}
     </div>
   );
 };

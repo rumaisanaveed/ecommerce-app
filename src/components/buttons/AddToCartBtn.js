@@ -1,23 +1,29 @@
-const AddToCartBtn = ({
-  product,
-  cartItems,
-  setCartItems,
-  cartItemsCount,
-  setCartItemsCount,
-  setIsAddToCart,
-  productCount,
-  noOfCartItems,
-  setNoOfCartItems,
-}) => {
+import { useContext } from "react";
+import CartContext from "../../context/CartContext";
+
+const AddToCartBtn = ({ product }) => {
+  const {
+    cartItemsCount,
+    setCartItemsCount,
+    productCount,
+    setIsAddToCart,
+    cartData,
+    setCartData,
+    noOfCartItems,
+    setNoOfCartItems,
+  } = useContext(CartContext);
+
   // 10 is used as redix to ensure the number must be in decimal system
   // To ensure that cart count adds the previous value
   const newCartItemsCount =
     parseInt(cartItemsCount, 10) + parseInt(productCount, 10);
 
   const handleAddToCart = () => {
-    setCartItems([...cartItems, product]);
-    console.log(cartItems);
+    // Retrieving the previous data in the cart also
+    // console.log(cartData);
+    setCartData([...cartData, product]);
     setCartItemsCount(newCartItemsCount);
+    // Make sure the item has been added to cart
     setIsAddToCart(true);
     setNoOfCartItems(noOfCartItems + 1);
 

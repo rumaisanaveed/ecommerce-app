@@ -1,19 +1,15 @@
-import React, { useState } from "react"; // Import React and useState (if not already imported)
+import React, { useContext, useState } from "react"; // Import React and useState (if not already imported)
 import logo from "../components/logo.svg";
 import { Link } from "react-router-dom";
 import MobileMenu from "../components/MobileMenu";
 import { RiShoppingBasketLine } from "react-icons/ri";
-import Cart from "../components/Cart";
+import CartContext from "../context/CartContext";
 
-const Header = ({ cartItemsCount }) => {
-  // State to manage the visibility of the Cart component
-  const [isCartVisible, setIsCartVisible] = useState(false);
+const Header = () => {
+  const { cartItemsCount } = useContext(CartContext);
 
-  // Function to toggle the visibility of the Cart component
-  const toggleCartVisibility = () => {
-    console.log(isCartVisible);
-    setIsCartVisible(!isCartVisible);
-  };
+  const { isCartVisible, setIsCartVisible, toggleCartVisibility } =
+    useContext(CartContext);
 
   return (
     <main>
@@ -62,8 +58,6 @@ const Header = ({ cartItemsCount }) => {
         </div>
         <MobileMenu />
       </header>
-      {/* Conditionally render the Cart component */}
-      {isCartVisible && <Cart />}
     </main>
   );
 };
