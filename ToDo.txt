@@ -1,8 +1,7 @@
-Issues to fix 
 fix scrolling of the cart container (Not found any method to do it)
-Again make the quantity button visible
+Again make the quantity button visible 
 Total price calculation 
 Update handleDelete to decrement the total price 
 update AddToCart to increment the total price 
-display the cart btn on smaller screens 
 change the search button position 
+make the about page 100% responsive 

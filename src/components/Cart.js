@@ -13,7 +13,21 @@ const Cart = () => {
   };
 
   // Cart data consumer
-  const { cartData, noOfCartItems } = useContext(CartContext);
+  const {
+    cartData,
+    noOfCartItems,
+    productCount,
+    totalCartPrice,
+    setTotalCartPrice,
+  } = useContext(CartContext);
+
+  // Cart total amount
+  const totalPrice = cartData.reduce(
+    (acc, dataItem) => acc + productCount * parseFloat(dataItem.price),
+    0
+  );
+  // console.log(totalPrice);
+  setTotalCartPrice(totalPrice);
 
   return (
     <>
@@ -37,21 +51,24 @@ const Cart = () => {
           {noOfCartItems > 0 && (
             <>
               {/* {console.log(noOfCartItems)} */}
+              {console.log(cartData)}
               <div className="cart-body">
-                {cartData.map((item, index) => {
-                  // console.log(item);
-                  return (
-                    <CartItem
-                      key={index}
-                      productImg={item.image}
-                      productName={item.title}
-                      productPrice={item.price}
-                    />
-                  );
-                })}
+                {cartData &&
+                  cartData.map((item, index) => {
+                    // console.log(item);
+                    return (
+                      <CartItem
+                        key={index}
+                        productImg={item.image}
+                        productName={item.title}
+                        productPrice={item.price}
+                        productCount={parseInt(item.quantity)}
+                      />
+                    );
+                  })}
                 <div className="price-container">
                   <p>Subtotal:</p>
-                  <p>$18</p>
+                  <p>${totalCartPrice}</p>
                 </div>
                 <div className="cart-btns">
                   <ViewCartBtn />

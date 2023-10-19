@@ -15,7 +15,7 @@ const Toiletries = () => {
         <Products products={searchToiletries} />
       ) : (
         <main className="product-not-found">
-          <p className="no-data">No products to display</p>
+          <p className="no-data">No products to display...</p>
         </main>
       )}
     </main>

@@ -11,6 +11,16 @@ export const DataProvider = ({ children }) => {
   const [searchGroceries, setSearchGroceries] = useState([]);
   const [filterToiletries, setFilteredToiletries] = useState([]);
   const [searchToiletries, setSearchToiletries] = useState([]);
+  // Customer Info
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [country, setCountry] = useState(null);
+  const [streetAddress, setStreetAddress] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
+  const [postcode, setPostCode] = useState();
+  const [phoneNum, setPhoneNum] = useState();
+  const [email, setEmail] = useState("");
 
   const { data, fetchError, isLoading } = useAxiosFetch(
     "http://localhost:3500/items"

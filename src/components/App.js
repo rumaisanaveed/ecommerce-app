@@ -10,9 +10,10 @@ import Main from "../pages/Main";
 import About from "../pages/About";
 import Contact from "../pages/Contact";
 import CartPage from "../pages/CartPage";
-import { DataProvider } from "../context/DataContext";
-// Api
 import ProductPage from "../pages/ProductPage";
+import Checkout from "../pages/Checkout";
+// Contexts
+import { DataProvider } from "../context/DataContext";
 import { CartContextProvider } from "../context/CartContext";
 
 function App() {
@@ -21,10 +22,11 @@ function App() {
       <CartContextProvider>
         <Routes>
           <Route path="/" element={<Layout />}>
+            <Route index element={<Main />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/checkout" element={<Checkout />} />
             <Route path="/cart" element={<CartPage />} />
-            <Route index element={<Main />} />
             <Route path="/home">
               <Route index element={<Home />} />
               <Route path=":title" element={<ProductPage />} />

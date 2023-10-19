@@ -4,106 +4,121 @@
       "id": 1,
       "image": "images/cashewButter.jpg",
       "title": "Cashew Butter",
-      "price": "$20",
-      "category": "groceries"
+      "price": 20,
+      "category": "groceries",
+      "quantity": 0
     },
     {
       "id": 2,
       "image": "/images/coffeeAsorted.jpg",
       "title": "Coffee Asorted",
-      "price": "$50",
-      "category": "groceries"
+      "price": 50,
+      "category": "groceries",
+      "quantity": 0
     },
     {
       "id": 3,
       "image": "/images/cookies.jpg",
       "title": "Cookies",
-      "price": "$25",
-      "category": "groceries"
+      "price": 25,
+      "category": "groceries",
+      "quantity": 0
     },
     {
       "id": 4,
       "image": "/images/edibleOil.jpg",
       "title": "Edible Oil",
-      "price": "$34",
-      "category": "groceries"
+      "price": 34,
+      "category": "groceries",
+      "quantity": 0
     },
     {
       "id": 5,
       "image": "/images/eggs.jpg",
       "title": "Eggs",
-      "price": "$50",
-      "category": "groceries"
+      "price": 50,
+      "category": "groceries",
+      "quantity": 0
     },
     {
       "id": 6,
       "image": "/images/gucciPerfume.jpg",
       "title": "Gucci Perfume",
-      "price": "$100",
-      "categor": "toiletries"
+      "price": 100,
+      "category": "toiletries",
+      "quantity": 0
     },
     {
       "id": 7,
       "image": "/images/himalayaFacewash.jpg",
       "title": "Himalaya Face Wash",
-      "price": "$30",
-      "categor": "toiletries"
+      "price": 30,
+      "category": "toiletries",
+      "quantity": 0
     },
     {
       "id": 8,
       "image": "/images/lorealShampoo.jpg",
       "title": "Loreal Shampoo",
-      "price": "$20",
-      "category": "toiletries"
+      "price": 20,
+      "category": "toiletries",
+      "quantity": 0
     },
     {
       "id": 9,
       "image": "/images/missDiorPerfume.png",
       "title": "Miss Dior Perfume",
-      "price": "$120",
-      "category": "toiletries"
+      "price": 120,
+      "category": "toiletries",
+      "quantity": 0
     },
     {
       "id": 10,
       "image": "/images/orangeJuice.jpg",
       "title": "Orange Juice",
-      "price": "$35",
-      "category": "groceries"
+      "price": 35,
+      "category": "groceries",
+      "quantity": 0
     },
     {
       "id": 11,
       "image": "/images/organicHoney.jpg",
       "title": "Organic Honey",
       "price": "$55",
-      "category": "groceries"
+      "category": "groceries",
+      "quantity": 0
     },
     {
       "id": 12,
       "image": "/images/panteneShampoo.jpg",
       "title": "Pantene Shampoo",
-      "price": "$15",
-      "category": "toiletries"
+      "price": 15,
+      "category": "toiletries",
+      "quantity": 0
     },
     {
       "id": 13,
       "image": "/images/pondsFacewash.jpg",
       "title": "Ponds Face Wash",
-      "price": "$25",
-      "category": "toiletries"
+      "price": 25,
+      "category": "toiletries",
+      "quantity": 0
     },
     {
       "id": 14,
       "image": "/images/sanitizer.jpg",
       "title": "Sanitizer",
-      "price": "$30",
-      "category": "toiletries"
+      "price": 30,
+      "category": "toiletries",
+      "quantity": 0
     },
     {
       "id": 15,
       "image": "/images/redChillies.jpg",
       "title": "Red Chillies",
-      "price": "$10",
-      "category": "groceries"
+      "price": 10,
+      "category": "groceries",
+      "quantity": 0
     }
   ]
 }

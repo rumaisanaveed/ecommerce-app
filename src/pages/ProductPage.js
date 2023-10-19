@@ -1,11 +1,15 @@
 import { useParams } from "react-router-dom";
 import AddToCartBtn from "../components/buttons/AddToCartBtn";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import DataContext from "../context/DataContext";
+import InputBtn from "../components/buttons/InputBtn";
+import CartContext from "../context/CartContext";
 
 const ProductPage = () => {
   const { searchResults, filterGroceries, searchToiletries } =
     useContext(DataContext);
+
+  const { cartData, setCartData } = useContext(CartContext);
 
   // Checking the current page
   const { title } = useParams();
@@ -33,6 +37,20 @@ const ProductPage = () => {
         .join(" ")
   );
 
+  // Update the quantity of each product in the cart
+
+  const handleQuantityChange = (productId, newQuantity) => {
+    const updatedCartData = cartData.map((item) => {
+      if (item.id === productId) {
+        return { ...item, quantity: parseInt(newQuantity, 10) };
+      }
+      return item;
+    });
+    console.log(cartData);
+    setCartData(updatedCartData);
+    // console.log(cartData);
+  };
+
   return (
     <>
       {product && (
@@ -43,7 +61,7 @@ const ProductPage = () => {
             </div>
             <div className="product-details">
               <h1>{product.title}</h1>
-              <h2>{product.price}</h2>
+              <h2>${product.price}</h2>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Provident quis ex officia eveniet at,aliquam rem, libero sequi
@@ -51,6 +69,12 @@ const ProductPage = () => {
                 explicabo nulla cupiditate exercitationem neque iusto?
               </p>
               <div className="btns-container">
+                <InputBtn
+                  quantity={parseInt(product.quantity)}
+                  onQuantityChange={(newQuantity) =>
+                    handleQuantityChange(product.id, newQuantity)
+                  }
+                />
                 <AddToCartBtn product={product} />
               </div>
             </div>

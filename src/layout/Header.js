@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react"; // Import React and useState (if not already imported)
+import React, { useContext } from "react"; // Import React and useState (if not already imported)
 import logo from "../components/logo.svg";
 import { Link } from "react-router-dom";
 import MobileMenu from "../components/MobileMenu";
@@ -8,8 +8,7 @@ import CartContext from "../context/CartContext";
 const Header = () => {
   const { cartItemsCount } = useContext(CartContext);
 
-  const { isCartVisible, setIsCartVisible, toggleCartVisibility } =
-    useContext(CartContext);
+  const { toggleCartVisibility } = useContext(CartContext);
 
   return (
     <main>
