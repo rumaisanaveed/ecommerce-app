@@ -3,8 +3,6 @@ import { HiOutlineMenu } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import CartContext from "../context/CartContext";
 import { RiShoppingBasketLine } from "react-icons/ri";
-import DataContext from "../context/DataContext";
-import SearchBox from "./searchBox";
 
 const MobileMenu = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,24 +11,21 @@ const MobileMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const { search, setSearch } = useContext(DataContext);
-  const { cartItemsCount, toggleCartVisibility } = useContext(CartContext);
+  const { noOfCartItems, toggleCartVisibility } = useContext(CartContext);
 
   return (
     <>
-      <div className="responsive-nav">
+      <header>
+        <div className="cart-icon-container" onClick={toggleCartVisibility}>
+          <RiShoppingBasketLine className="cart-icon" />
+          <span className="cart-items-count">{noOfCartItems}</span>
+        </div>
         <div className="nav-menu">
           <button onClick={toggleMenu}>
             <HiOutlineMenu className="nav-menu-icon" />
           </button>
         </div>
-        <div className="mobile-cart">
-          <div className="cart-icon-container" onClick={toggleCartVisibility}>
-            <RiShoppingBasketLine className="cart-icon" />
-            <span className="cart-items-count">{cartItemsCount}</span>
-          </div>
-        </div>
-      </div>
+      </header>
       {isMenuOpen && (
         <>
           <ul className="menu-hidden">

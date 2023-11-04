@@ -1,7 +1,5 @@
-fix scrolling of the cart container (Not found any method to do it)
-Again make the quantity button visible 
-Total price calculation 
-Update handleDelete to decrement the total price 
-update AddToCart to increment the total price 
-change the search button position 
-make the about page 100% responsive 
+header 
+quality section 
+cart responsive 
+bg dull and stop scrolling 
+remove input button and add the separate increment and decrement buttons on cart 

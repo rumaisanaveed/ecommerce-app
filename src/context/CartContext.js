@@ -10,6 +10,7 @@ export const CartContextProvider = ({ children }) => {
   const [isCartVisible, setIsCartVisible] = useState(false);
   const [noOfCartItems, setNoOfCartItems] = useState(0);
   const [totalCartPrice, setTotalCartPrice] = useState(0);
+  const [productQuantity, setProductQuantity] = useState(0);
 
   // Function to toggle the visibility of the Cart component
   const toggleCartVisibility = () => {
@@ -35,6 +36,8 @@ export const CartContextProvider = ({ children }) => {
         toggleCartVisibility,
         totalCartPrice,
         setTotalCartPrice,
+        productQuantity,
+        setProductQuantity,
       }}
     >
       {children}

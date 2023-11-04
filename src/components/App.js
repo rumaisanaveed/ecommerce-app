@@ -11,7 +11,7 @@ import About from "../pages/About";
 import Contact from "../pages/Contact";
 import CartPage from "../pages/CartPage";
 import ProductPage from "../pages/ProductPage";
-import Checkout from "../pages/Checkout";
+import CheckoutPage from "../pages/CheckoutPage";
 // Contexts
 import { DataProvider } from "../context/DataContext";
 import { CartContextProvider } from "../context/CartContext";
@@ -22,10 +22,11 @@ function App() {
       <CartContextProvider>
         <Routes>
           <Route path="/" element={<Layout />}>
+            <Route path="*" element={<NotFound />}></Route>
             <Route index element={<Main />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/checkout" element={<CheckoutPage />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/home">
               <Route index element={<Home />} />
@@ -41,7 +42,6 @@ function App() {
               <Route path=":title" element={<ProductPage />} />
             </Route>
           </Route>
-          <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </CartContextProvider>
     </DataProvider>

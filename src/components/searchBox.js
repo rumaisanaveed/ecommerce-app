@@ -1,4 +1,8 @@
-const SearchBox = ({ search, setSearch }) => {
+import { useContext } from "react";
+import DataContext from "../context/DataContext";
+
+const SearchBox = () => {
+  const { search, setSearch } = useContext(DataContext);
   return (
     <main className="search-box">
       <form onSubmit={(e) => e.preventDefault()}>

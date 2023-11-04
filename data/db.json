@@ -6,7 +6,7 @@
       "title": "Cashew Butter",
       "price": 20,
       "category": "groceries",
-      "quantity": 0
+      "quantity": 1
     },
     {
       "id": 2,
@@ -14,7 +14,7 @@
       "title": "Coffee Asorted",
       "price": 50,
       "category": "groceries",
-      "quantity": 0
+      "quantity": 1
     },
     {
       "id": 3,
@@ -22,7 +22,7 @@
       "title": "Cookies",
       "price": 25,
       "category": "groceries",
-      "quantity": 0
+      "quantity": 1
     },
     {
       "id": 4,
@@ -30,7 +30,7 @@
       "title": "Edible Oil",
       "price": 34,
       "category": "groceries",
-      "quantity": 0
+      "quantity": 1
     },
     {
       "id": 5,
@@ -38,7 +38,7 @@
       "title": "Eggs",
       "price": 50,
       "category": "groceries",
-      "quantity": 0
+      "quantity": 1
     },
     {
       "id": 6,
@@ -46,7 +46,7 @@
       "title": "Gucci Perfume",
       "price": 100,
       "category": "toiletries",
-      "quantity": 0
+      "quantity": 1
     },
     {
       "id": 7,
@@ -54,7 +54,7 @@
       "title": "Himalaya Face Wash",
       "price": 30,
       "category": "toiletries",
-      "quantity": 0
+      "quantity": 1
     },
     {
       "id": 8,
@@ -62,7 +62,7 @@
       "title": "Loreal Shampoo",
       "price": 20,
       "category": "toiletries",
-      "quantity": 0
+      "quantity": 1
     },
     {
       "id": 9,
@@ -70,7 +70,7 @@
       "title": "Miss Dior Perfume",
       "price": 120,
       "category": "toiletries",
-      "quantity": 0
+      "quantity": 1
     },
     {
       "id": 10,
@@ -78,7 +78,7 @@
       "title": "Orange Juice",
       "price": 35,
       "category": "groceries",
-      "quantity": 0
+      "quantity": 1
     },
     {
       "id": 11,
@@ -86,7 +86,7 @@
       "title": "Organic Honey",
       "price": "$55",
       "category": "groceries",
-      "quantity": 0
+      "quantity": 1
     },
     {
       "id": 12,
@@ -94,7 +94,7 @@
       "title": "Pantene Shampoo",
       "price": 15,
       "category": "toiletries",
-      "quantity": 0
+      "quantity": 1
     },
     {
       "id": 13,
@@ -102,7 +102,7 @@
       "title": "Ponds Face Wash",
       "price": 25,
       "category": "toiletries",
-      "quantity": 0
+      "quantity": 1
     },
     {
       "id": 14,
@@ -110,7 +110,7 @@
       "title": "Sanitizer",
       "price": 30,
       "category": "toiletries",
-      "quantity": 0
+      "quantity": 1
     },
     {
       "id": 15,
@@ -118,7 +118,7 @@
       "title": "Red Chillies",
       "price": 10,
       "category": "groceries",
-      "quantity": 0
+      "quantity": 1
     }
   ]
 }

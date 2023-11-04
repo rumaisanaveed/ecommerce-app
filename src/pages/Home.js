@@ -1,17 +1,18 @@
 import { useContext } from "react";
 import Products from "../components/product_listings/Products";
-import SearchBox from "../components/searchBox";
 import DataContext from "../context/DataContext";
+import CartContext from "../context/CartContext";
 
 const Home = () => {
   const { search, setSearch, fetchError, isLoading, searchResults } =
     useContext(DataContext);
+  const { isCartVisible } = useContext(CartContext);
+  const mainClass = isCartVisible ? "stop-scroll home" : "home";
 
   return (
-    <main className="home">
-      {/* <SearchBox search={search} setSearch={setSearch} /> */}
-      {isLoading && <p>Loading products....</p>}
-      {!isLoading && fetchError && <p>{fetchError}</p>}
+    <main className={mainClass}>
+      {/* {isLoading && <p>Loading products....</p>}
+      {!isLoading && fetchError && <p>{fetchError}</p>} */}
       {!isLoading && !fetchError && searchResults.length ? (
         <Products
           search={search}
@@ -20,10 +21,11 @@ const Home = () => {
         />
       ) : (
         <main className="product-not-found">
-          <p className="no-data">No products to display...</p>
+          <h1>No products to display...</h1>
         </main>
       )}
     </main>
   );
 };
+
 export default Home;

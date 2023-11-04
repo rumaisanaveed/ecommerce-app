@@ -4,20 +4,19 @@ import { Link } from "react-router-dom";
 import MobileMenu from "../components/MobileMenu";
 import { RiShoppingBasketLine } from "react-icons/ri";
 import CartContext from "../context/CartContext";
+import SearchBox from "../components/searchBox";
 
 const Header = () => {
-  const { cartItemsCount } = useContext(CartContext);
-
-  const { toggleCartVisibility } = useContext(CartContext);
+  const { noOfCartItems, toggleCartVisibility } = useContext(CartContext);
 
   return (
     <main>
       <header>
-        <div>
-          <Link to="/">
-            <img src={logo} alt="" className="site-logo" />
-          </Link>
-        </div>
+        <Link to="/">
+          <div className="site-logo">
+            <img src={logo} alt="" />
+          </div>
+        </Link>
         <div className="nav-left">
           <ul>
             <li>
@@ -35,10 +34,6 @@ const Header = () => {
                 Toiletries
               </Link>
             </li>
-          </ul>
-        </div>
-        <div className="nav-right">
-          <ul>
             <li>
               <Link to="/about" className="link">
                 About
@@ -50,13 +45,25 @@ const Header = () => {
               </Link>
             </li>
           </ul>
-          <div className="cart-icon-container" onClick={toggleCartVisibility}>
-            <RiShoppingBasketLine className="cart-icon" />
-            <span className="cart-items-count">{cartItemsCount}</span>
-          </div>
         </div>
-        <MobileMenu />
+        <div className="nav-right">
+          <ul>
+            <li>
+              <SearchBox />
+            </li>
+            <li>
+              <div
+                className="cart-icon-container"
+                onClick={toggleCartVisibility}
+              >
+                <RiShoppingBasketLine className="cart-icon" />
+                <span className="cart-items-count">{noOfCartItems}</span>
+              </div>
+            </li>
+          </ul>
+        </div>
       </header>
+      {/* <MobileMenu /> */}
     </main>
   );
 };

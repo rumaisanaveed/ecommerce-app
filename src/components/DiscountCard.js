@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const DiscountCard = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+  return <div></div>;
+};
 
-export default DiscountCard
+export default DiscountCard;

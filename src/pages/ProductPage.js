@@ -40,13 +40,14 @@ const ProductPage = () => {
   // Update the quantity of each product in the cart
 
   const handleQuantityChange = (productId, newQuantity) => {
+    // console.log(newQuantity);
     const updatedCartData = cartData.map((item) => {
       if (item.id === productId) {
         return { ...item, quantity: parseInt(newQuantity, 10) };
       }
       return item;
     });
-    console.log(cartData);
+    // console.log(cartData);
     setCartData(updatedCartData);
     // console.log(cartData);
   };
@@ -69,12 +70,12 @@ const ProductPage = () => {
                 explicabo nulla cupiditate exercitationem neque iusto?
               </p>
               <div className="btns-container">
-                <InputBtn
+                {/* <InputBtn
                   quantity={parseInt(product.quantity)}
                   onQuantityChange={(newQuantity) =>
                     handleQuantityChange(product.id, newQuantity)
                   }
-                />
+                /> */}
                 <AddToCartBtn product={product} />
               </div>
             </div>
