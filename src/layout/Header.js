@@ -1,70 +1,76 @@
-import React, { useContext } from "react"; // Import React and useState (if not already imported)
+import { useContext, useState } from "react"; // Import React and useState (if not already imported)
 import logo from "../components/logo.svg";
+import { HiOutlineMenu } from "react-icons/hi";
 import { Link } from "react-router-dom";
-import MobileMenu from "../components/MobileMenu";
 import { RiShoppingBasketLine } from "react-icons/ri";
 import CartContext from "../context/CartContext";
 import SearchBox from "../components/searchBox";
+import { IoSearch } from "react-icons/io5";
 
 const Header = () => {
-  const { noOfCartItems, toggleCartVisibility } = useContext(CartContext);
+  const { cartData, toggleCartVisibility } = useContext(CartContext);
+  const totalCartItems = cartData?.reduce((total, item) => {
+    return total + item.quantity;
+  }, 0);
+
+  // To handle mobile menu button
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [showSearchBar, setShowSearchBar] = useState(false);
 
   return (
-    <main>
+    <>
       <header>
-        <Link to="/">
-          <div className="site-logo">
+        <div>
+          <Link to="/" className="logo">
             <img src={logo} alt="" />
-          </div>
-        </Link>
-        <div className="nav-left">
-          <ul>
-            <li>
-              <Link to="/home" className="link">
-                Everything
-              </Link>
-            </li>
-            <li>
-              <Link to="/groceries" className="link">
-                Groceries
-              </Link>
-            </li>
-            <li>
-              <Link to="/toiletries" className="link">
-                Toiletries
-              </Link>
-            </li>
-            <li>
-              <Link to="/about" className="link">
-                About
-              </Link>
-            </li>
-            <li>
-              <Link to="/contact" className="link">
-                Contact
-              </Link>
-            </li>
-          </ul>
+          </Link>
         </div>
-        <div className="nav-right">
-          <ul>
-            <li>
+
+        <nav className={showMobileMenu ? "mobile-menu" : "navbar"}>
+          <Link to="/home" className="link">
+            Everything
+          </Link>
+          <Link to="/groceries" className="link">
+            Groceries
+          </Link>
+          <Link to="/toiletries" className="link">
+            Toiletries
+          </Link>
+          <Link to="/about" className="link">
+            About
+          </Link>
+          <Link to="/contact" className="link">
+            Contact
+          </Link>
+        </nav>
+
+        <div className="mobile-right-nav">
+          <div className="header-right">
+            <div className="nav-right-search">
               <SearchBox />
-            </li>
-            <li>
-              <div
-                className="cart-icon-container"
-                onClick={toggleCartVisibility}
-              >
-                <RiShoppingBasketLine className="cart-icon" />
-                <span className="cart-items-count">{noOfCartItems}</span>
-              </div>
-            </li>
-          </ul>
+            </div>
+            <div className="cart-icon-container" onClick={toggleCartVisibility}>
+              <RiShoppingBasketLine className="cart-icon" />
+              <span className="cart-items-count">{totalCartItems}</span>
+            </div>
+          </div>
+
+          <div
+            className="search-icon"
+            onClick={() => setShowSearchBar(!showSearchBar)}
+          >
+            <IoSearch />
+            <div className={showSearchBar ? "mobile-searchbar" : ""}>
+              <SearchBox />
+            </div>
+          </div>
+
+          <div className="menu-icon">
+            <HiOutlineMenu onClick={() => setShowMobileMenu(!showMobileMenu)} />
+          </div>
         </div>
       </header>
-      {/* <MobileMenu /> */}
-    </main>
+    </>
   );
 };
 

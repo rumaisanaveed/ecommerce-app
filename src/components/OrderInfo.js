@@ -2,8 +2,9 @@ import { useContext } from "react";
 import PlaceOrderBtn from "./buttons/PlaceOrderBtn";
 import CartContext from "../context/CartContext";
 
-const OrderInfo = () => {
+const OrderInfo = ({ handleFormSubmit }) => {
   const { cartData, totalCartPrice } = useContext(CartContext);
+
   return (
     <main className="order-info-container">
       <h1>Your Order</h1>
@@ -39,7 +40,8 @@ const OrderInfo = () => {
           </div>
         </div>
       </div>
-      <PlaceOrderBtn />
+      {/* handleFormSubmit */}
+      <PlaceOrderBtn handleFormSubmit={handleFormSubmit} />
     </main>
   );
 };

@@ -9,7 +9,7 @@ const Groceries = () => {
   // console.log(searchGroceries);
   const { isCartVisible } = useContext(CartContext);
   return (
-    <main className={isCartVisible ? "stop-scroll home" : "home"}>
+    <main className="home">
       {/* {isLoading && <p>Products are loading...</p>}
       {!isLoading && fetchError && <p>{fetchError}</p>} */}
       {!isLoading && !fetchError && searchGroceries.length ? (

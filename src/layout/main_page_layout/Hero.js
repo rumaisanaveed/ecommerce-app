@@ -12,11 +12,9 @@ const Hero = () => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
             tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
           </p>
-          <button className="shop-btn">
-            <Link className="shop-now-link" to="/home">
-              SHOP NOW
-            </Link>
-          </button>
+          <Link className="shop-btn" to="/home">
+            SHOP NOW
+          </Link>
         </section>
         <section className="hero-section-2">
           <img src="/images/heroImage.png" alt="" className="hero-img" />

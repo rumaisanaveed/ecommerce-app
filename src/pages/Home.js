@@ -7,10 +7,9 @@ const Home = () => {
   const { search, setSearch, fetchError, isLoading, searchResults } =
     useContext(DataContext);
   const { isCartVisible } = useContext(CartContext);
-  const mainClass = isCartVisible ? "stop-scroll home" : "home";
 
   return (
-    <main className={mainClass}>
+    <main className="home">
       {/* {isLoading && <p>Loading products....</p>}
       {!isLoading && fetchError && <p>{fetchError}</p>} */}
       {!isLoading && !fetchError && searchResults.length ? (

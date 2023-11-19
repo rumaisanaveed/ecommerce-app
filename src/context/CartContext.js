@@ -3,14 +3,17 @@ import { createContext, useState } from "react";
 const CartContext = createContext({});
 
 export const CartContextProvider = ({ children }) => {
-  // const [productCount, setProductCount] = useState(1);
-  const [cartItemsCount, setCartItemsCount] = useState(0);
+  const [CARTDATA, setCARTDATA] = useState([]);
+  // Flag for item has been added to cart
   const [isAddToCart, setIsAddToCart] = useState(false);
+  // Actual data in the cart
   const [cartData, setCartData] = useState([]);
+  // Flag for showing cart
   const [isCartVisible, setIsCartVisible] = useState(false);
+  // Total items in the cart
   const [noOfCartItems, setNoOfCartItems] = useState(0);
+  // Cart total price
   const [totalCartPrice, setTotalCartPrice] = useState(0);
-  const [productQuantity, setProductQuantity] = useState(0);
 
   // Function to toggle the visibility of the Cart component
   const toggleCartVisibility = () => {
@@ -23,8 +26,8 @@ export const CartContextProvider = ({ children }) => {
       value={{
         // productCount,
         // setProductCount,
-        cartItemsCount,
-        setCartItemsCount,
+        CARTDATA,
+        setCARTDATA,
         isAddToCart,
         setIsAddToCart,
         cartData,
@@ -36,8 +39,6 @@ export const CartContextProvider = ({ children }) => {
         toggleCartVisibility,
         totalCartPrice,
         setTotalCartPrice,
-        productQuantity,
-        setProductQuantity,
       }}
     >
       {children}

@@ -2,7 +2,6 @@ import { useParams } from "react-router-dom";
 import AddToCartBtn from "../components/buttons/AddToCartBtn";
 import { useContext } from "react";
 import DataContext from "../context/DataContext";
-import InputBtn from "../components/buttons/InputBtn";
 import CartContext from "../context/CartContext";
 
 const ProductPage = () => {
@@ -70,12 +69,6 @@ const ProductPage = () => {
                 explicabo nulla cupiditate exercitationem neque iusto?
               </p>
               <div className="btns-container">
-                {/* <InputBtn
-                  quantity={parseInt(product.quantity)}
-                  onQuantityChange={(newQuantity) =>
-                    handleQuantityChange(product.id, newQuantity)
-                  }
-                /> */}
                 <AddToCartBtn product={product} />
               </div>
             </div>

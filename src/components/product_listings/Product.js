@@ -8,7 +8,9 @@ const Product = ({ product }) => {
         to={`${product.title.replace(/\s+/g, "-").toLowerCase()}`}
       >
         <main className="product">
-          <img className="product-image" src={product.image} alt="" />
+          <div className="product-image">
+            <img src={product.image} alt="" />
+          </div>
           <p className="product-title">{product.title}</p>
           <p className="product-price">${product.price}</p>
         </main>

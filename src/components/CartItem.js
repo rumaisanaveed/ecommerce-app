@@ -2,16 +2,45 @@ import { useContext } from "react";
 import { RxCross1 } from "react-icons/rx";
 import CartContext from "../context/CartContext";
 
-const CartItem = ({ productImg, productName, productPrice, productCount }) => {
+const CartItem = ({
+  cartIndex,
+  productImg,
+  productName,
+  productPrice,
+  productCount,
+}) => {
   // Handling the deletion of a product from the cart
-  const { cartData, setCartData, noOfCartItems, setNoOfCartItems } =
-    useContext(CartContext);
+  const { setCartData, CARTDATA, setCARTDATA } = useContext(CartContext);
+
   const handleItemDelete = (productName) => {
-    const cartItemsAfterDeletion = cartData.filter(
+    console.log(productName);
+    const cartItemsAfterDeletion = CARTDATA.filter(
       (item) => item.title !== productName
     );
-    setCartData(cartItemsAfterDeletion);
-    setNoOfCartItems(noOfCartItems - 1);
+    setCARTDATA(cartItemsAfterDeletion);
+  };
+
+  const handleIncrement = (cartindex) => {
+    const _CART = CARTDATA.map((item, index) => {
+      return cartindex === index
+        ? { ...item, quantity: item.quantity + 1 }
+        : item;
+    });
+    setCARTDATA(_CART);
+    setCartData(_CART);
+  };
+
+  const handleDecrement = (cartindex) => {
+    const _CART = CARTDATA.map((item, index) => {
+      return cartindex === index
+        ? {
+            ...item,
+            quantity: item.quantity > 1 ? item.quantity - 1 : item.quantity,
+          }
+        : item;
+    });
+    setCARTDATA(_CART);
+    setCartData(_CART);
   };
 
   return (
@@ -22,17 +51,23 @@ const CartItem = ({ productImg, productName, productPrice, productCount }) => {
           <div className="cart-content">
             <p className="cart-item-name">{productName}</p>
             <div className="item-info">
-              {/* <p>{productCount}</p>
-            <p>x</p> */}
-              <p>${productPrice}</p>
+              <p>${productPrice * productCount}</p>
             </div>
           </div>
           <div className="cart-item-btns">
-            <button className="inc-btn" type="number">
+            <button
+              className="inc-btn"
+              type="number"
+              onClick={() => handleIncrement(cartIndex)}
+            >
               +
             </button>
-            <p>1</p>
-            <button className="dec-btn" type="number">
+            <p>{productCount}</p>
+            <button
+              className="dec-btn"
+              type="number"
+              onClick={() => handleDecrement(cartIndex)}
+            >
               -
             </button>
           </div>

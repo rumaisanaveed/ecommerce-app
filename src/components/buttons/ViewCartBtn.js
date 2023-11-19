@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 const ViewCartBtn = () => {
   return (
-    <Link to="/cart">
-      <button className="view-cart-btn">View Cart</button>
+    <Link to="/cart" className="view-cart-btn">
+      View Cart
     </Link>
   );
 };

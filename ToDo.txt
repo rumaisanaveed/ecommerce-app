@@ -1,5 +1,4 @@
-header 
-quality section 
-cart responsive 
-bg dull and stop scrolling 
-remove input button and add the separate increment and decrement buttons on cart 
+header for small devices 
+Add another button for search button 
+media queries css - done 
+css code refactoring - done 

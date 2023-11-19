@@ -1,5 +1,5 @@
 import { RxCross1 } from "react-icons/rx";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import CartItem from "./CartItem";
 import ViewCartBtn from "./buttons/ViewCartBtn";
 import CheckOutBtn from "./buttons/CheckOutBtn";
@@ -13,16 +13,19 @@ const Cart = () => {
   };
 
   // Cart data consumer
-  const { cartData, noOfCartItems, totalCartPrice, setTotalCartPrice } =
+  const { CARTDATA, setCARTDATA, cartData, totalCartPrice, setTotalCartPrice } =
     useContext(CartContext);
 
   // Cart total amount
-  const totalPrice = cartData.reduce(
+  const totalPrice = CARTDATA.reduce(
     (acc, dataItem) => acc + dataItem.quantity * parseFloat(dataItem.price),
     0
   );
-  // console.log(totalPrice);
   setTotalCartPrice(totalPrice);
+
+  useEffect(() => {
+    setCARTDATA(cartData);
+  }, [cartData]);
 
   return (
     <>
@@ -33,7 +36,7 @@ const Cart = () => {
             <RxCross1 className="cross-icon" onClick={hideCart} />
           </div>
           {/* if cart has no items */}
-          {noOfCartItems === 0 && (
+          {CARTDATA.length === 0 && (
             <>
               {/* {console.log(noOfCartItems)} */}
               <div className="cart-msg">
@@ -43,16 +46,15 @@ const Cart = () => {
           )}
 
           {/* If cart has items */}
-          {noOfCartItems > 0 && (
+          {CARTDATA.length > 0 && (
             <>
-              {console.log(cartData)}
               <div className="cart-body">
-                {cartData &&
-                  cartData.map((item, index) => {
-                    // console.log(item);
+                {CARTDATA &&
+                  CARTDATA.map((item, cartIndex) => {
                     return (
                       <CartItem
-                        key={index}
+                        key={cartIndex}
+                        cartIndex={cartIndex}
                         productImg={item.image}
                         productName={item.title}
                         productPrice={item.price}
@@ -61,16 +63,17 @@ const Cart = () => {
                     );
                   })}
               </div>
+              <div className="cart-last-row">
+                <div className="price-container">
+                  <p>Subtotal:</p>
+                  <p>${totalCartPrice}</p>
+                </div>
+                <div className="cart-btns">
+                  <CheckOutBtn />
+                </div>
+              </div>
             </>
           )}
-          <div className="price-container">
-            <p>Subtotal:</p>
-            <p>${totalCartPrice}</p>
-          </div>
-          <div className="cart-btns">
-            <ViewCartBtn />
-            <CheckOutBtn />
-          </div>
         </div>
       )}
     </>
