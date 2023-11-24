@@ -4,8 +4,7 @@ import DataContext from "../context/DataContext";
 import CartContext from "../context/CartContext";
 
 const Groceries = () => {
-  const { search, setSearch, fetchError, isLoading, searchGroceries } =
-    useContext(DataContext);
+  const { fetchError, isLoading, searchGroceries } = useContext(DataContext);
   // console.log(searchGroceries);
   const { isCartVisible } = useContext(CartContext);
   return (

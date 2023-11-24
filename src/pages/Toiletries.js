@@ -4,9 +4,7 @@ import DataContext from "../context/DataContext";
 import CartContext from "../context/CartContext";
 
 const Toiletries = () => {
-  const { search, setSearch, fetchError, isLoading, searchToiletries } =
-    useContext(DataContext);
-  const { isCartVisible } = useContext(CartContext);
+  const { fetchError, isLoading, searchToiletries } = useContext(DataContext);
   return (
     <main className="home">
       {/* {isLoading && <p>Products are loading...</p>}

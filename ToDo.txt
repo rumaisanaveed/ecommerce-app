@@ -1,4 +1,0 @@
-header for small devices 
-Add another button for search button 
-media queries css - done 
-css code refactoring - done 

@@ -39,9 +39,6 @@ const Header = () => {
           <Link to="/about" className="link">
             About
           </Link>
-          <Link to="/contact" className="link">
-            Contact
-          </Link>
         </nav>
 
         <div className="mobile-right-nav">

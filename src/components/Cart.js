@@ -1,7 +1,6 @@
 import { RxCross1 } from "react-icons/rx";
 import { useContext, useState, useEffect } from "react";
 import CartItem from "./CartItem";
-import ViewCartBtn from "./buttons/ViewCartBtn";
 import CheckOutBtn from "./buttons/CheckOutBtn";
 import CartContext from "../context/CartContext";
 

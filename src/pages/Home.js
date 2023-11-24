@@ -1,12 +1,10 @@
 import { useContext } from "react";
 import Products from "../components/product_listings/Products";
 import DataContext from "../context/DataContext";
-import CartContext from "../context/CartContext";
 
 const Home = () => {
   const { search, setSearch, fetchError, isLoading, searchResults } =
     useContext(DataContext);
-  const { isCartVisible } = useContext(CartContext);
 
   return (
     <main className="home">
