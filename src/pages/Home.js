@@ -8,8 +8,6 @@ const Home = () => {
 
   return (
     <main className="home">
-      {/* {isLoading && <p>Loading products....</p>}
-      {!isLoading && fetchError && <p>{fetchError}</p>} */}
       {!isLoading && !fetchError && searchResults.length ? (
         <Products
           search={search}

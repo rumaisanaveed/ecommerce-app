@@ -13,7 +13,7 @@ const CartItem = ({
   const { setCartData, CARTDATA, setCARTDATA } = useContext(CartContext);
 
   const handleItemDelete = (productName) => {
-    console.log(productName);
+    // console.log(productName);
     const cartItemsAfterDeletion = CARTDATA.filter(
       (item) => item.title !== productName
     );
@@ -27,7 +27,6 @@ const CartItem = ({
         : item;
     });
     setCARTDATA(_CART);
-    setCartData(_CART);
   };
 
   const handleDecrement = (cartindex) => {
@@ -40,7 +39,6 @@ const CartItem = ({
         : item;
     });
     setCARTDATA(_CART);
-    setCartData(_CART);
   };
 
   return (

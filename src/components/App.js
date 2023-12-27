@@ -8,8 +8,6 @@ import Toiletries from "../pages/Toiletries";
 import NotFound from "../pages/NotFound";
 import Main from "../pages/Main";
 import About from "../pages/About";
-import Contact from "../pages/Contact";
-import CartPage from "../pages/CartPage";
 import ProductPage from "../pages/ProductPage";
 import CheckoutPage from "../pages/CheckoutPage";
 // Contexts
@@ -25,14 +23,11 @@ function App() {
             <Route path="*" element={<NotFound />}></Route>
             <Route index element={<Main />} />
             <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
             <Route path="/checkout" element={<CheckoutPage />} />
-            <Route path="/cart" element={<CartPage />} />
             <Route path="/home">
               <Route index element={<Home />} />
               <Route path=":title" element={<ProductPage />} />
             </Route>
-            <Route path="/cart"></Route>
             <Route path="/groceries">
               <Route index element={<Groceries />} />
               <Route path=":title" element={<ProductPage />} />

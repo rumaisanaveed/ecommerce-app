@@ -15,12 +15,12 @@ export const DataProvider = ({ children }) => {
   const { data, fetchError, isLoading } = useAxiosFetch(
     "http://localhost:3500/items"
   );
-  // console.log(data);
 
   useEffect(() => {
     setProducts(data);
   }, [data]);
 
+  // for search items
   useEffect(() => {
     const filteredResults = products.filter((product) =>
       product.title.toLowerCase().includes(search.toLowerCase())
@@ -28,6 +28,7 @@ export const DataProvider = ({ children }) => {
     setSearchResults(filteredResults);
   }, [products, search]);
 
+  // get grocery items
   useEffect(() => {
     const groceries = products.filter(
       (product) => product.category === "groceries"
@@ -35,6 +36,7 @@ export const DataProvider = ({ children }) => {
     setFilteredGroceries(groceries);
   }, [products]);
 
+  // get search items on grocery page
   useEffect(() => {
     const searchedGroceries = filterGroceries.filter((searchedGrocery) =>
       searchedGrocery.title.toLowerCase().includes(search.toLowerCase())
@@ -42,6 +44,7 @@ export const DataProvider = ({ children }) => {
     setSearchGroceries(searchedGroceries);
   }, [filterGroceries, search]);
 
+  // get toiletry items
   useEffect(() => {
     const toiletries = products.filter(
       (product) => product.category === "toiletries"
@@ -49,6 +52,7 @@ export const DataProvider = ({ children }) => {
     setFilteredToiletries(toiletries);
   }, [products]);
 
+  // get search items on toiletry page
   useEffect(() => {
     const searchedToiletries = filterToiletries.filter((searchedToiletry) =>
       searchedToiletry.title.toLowerCase().includes(search.toLowerCase())

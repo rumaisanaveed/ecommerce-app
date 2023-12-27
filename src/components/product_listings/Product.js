@@ -5,6 +5,7 @@ const Product = ({ product }) => {
     <>
       <Link
         style={{ textDecoration: "none", color: "inherit" }}
+        // /cookies
         to={`${product.title.replace(/\s+/g, "-").toLowerCase()}`}
       >
         <main className="product">

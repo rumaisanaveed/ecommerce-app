@@ -1,16 +1,12 @@
 import { useContext } from "react";
 import Products from "../components//product_listings/Products";
 import DataContext from "../context/DataContext";
-import CartContext from "../context/CartContext";
 
 const Groceries = () => {
   const { fetchError, isLoading, searchGroceries } = useContext(DataContext);
   // console.log(searchGroceries);
-  const { isCartVisible } = useContext(CartContext);
   return (
     <main className="home">
-      {/* {isLoading && <p>Products are loading...</p>}
-      {!isLoading && fetchError && <p>{fetchError}</p>} */}
       {!isLoading && !fetchError && searchGroceries.length ? (
         <Products products={searchGroceries} />
       ) : (

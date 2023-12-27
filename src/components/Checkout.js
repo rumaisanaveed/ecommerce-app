@@ -80,7 +80,7 @@ const Checkout = () => {
 
   return (
     <>
-      {console.log(Object.keys(formErrors).length)}
+      {/* {console.log(Object.keys(formErrors).length)} */}
       {/* If no errors, then display the final msg */}
       {Object.keys(formErrors).length === 0 && isFormSubmit ? (
         <FinalOrderMsg />
