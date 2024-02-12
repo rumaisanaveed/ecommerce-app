@@ -16,6 +16,7 @@ const Cart = () => {
     useContext(CartContext);
 
   // Cart total amount
+
   const totalPrice = CARTDATA.reduce(
     (acc, dataItem) => acc + dataItem.quantity * parseFloat(dataItem.price),
     0

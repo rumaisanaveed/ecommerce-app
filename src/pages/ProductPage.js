@@ -12,7 +12,7 @@ const ProductPage = () => {
 
   // Checking the current page
   const { title } = useParams();
-  console.log(title);
+  // console.log(title);
   const isHomePage =
     !title.includes("groceries") && !title.includes("toiletries");
   const isGroceriesPage = title.includes("groceries");
@@ -36,22 +36,7 @@ const ProductPage = () => {
         .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
         .join(" ")
   );
-  console.log(product);
-
-  // Update the quantity of each product in the cart
-
-  // const handleQuantityChange = (productId, newQuantity) => {
-  //   // console.log(newQuantity);
-  //   const updatedCartData = cartData.map((item) => {
-  //     if (item.id === productId) {
-  //       return { ...item, quantity: parseInt(newQuantity, 10) };
-  //     }
-  //     return item;
-  //   });
-  //   // console.log(cartData);
-  //   setCartData(updatedCartData);
-  //   // console.log(cartData);
-  // };
+  // console.log(product);
 
   return (
     <>

@@ -13,9 +13,9 @@ const OrderInfo = ({ handleFormSubmit }) => {
           <p>Product</p>
           <p>Subtotal</p>
         </div>
-        {cartData.map((item) => {
+        {cartData.map((item, index) => {
           return (
-            <div className="order-info-row">
+            <div className="order-info-row" key={index}>
               <p>{item.title}</p>
               <p>${item.price}</p>
             </div>

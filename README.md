@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+1. FEATURES
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+   1. It has different pages named as home page, three product pages and an about page.
+      1.1 - The product pages are named as everything, groceries and toiletries page and in which the products are listed
+      according to the name of the page.
+      1.2 - Each product also has the description page which appears when we click on a product on the products page.
+      1.3 - Each product page has the functionality of searching the products by their name.
+   2. The cart
+      2.1 - A user can add a product to the cart.
+      2.2 - Can edit the quantity of items in the cart
+      2.3 - The app displays the total amount of the items added in the cart.
+      2.4 - The cart also has the checkout button which navigates to the form which will demand the details of the order and
+      some personal details of the user.
+      2.5 - When this form has been filled, the app then displays the final page showing the success messsage after performing
+      the final order.
+   3. Error handling - The app properly handles the different edge cases and shows the corresponding page according to it.
+      3.1 - No products to display page - If the product page is loading and if the user search something which doesn't
+      match any product then this page is shown.
+      3.2 - 404 Not found - If the user mistakenly types the wrong url which doesn't exist on the web app then, this page is shown.
+   4. Fully responsive
+      The app is fully responsive and looks fine on every device whether it's mobile, tablet or laptop.
 
-## Available Scripts
+2. TECH STACK
 
-In the project directory, you can run:
+   1. Html & CSS
+   2. React js
 
-### `npm start`
+3. How to run the app after cloning the project ?
+   Terminal 1 -> npm start
+   Terminal 2 -> npx json-server -p 3500 -w data/db.json
+   Note : make sure to run npm i to install all the dependencies used in the project
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+4. How the code is implemented ?
+   4.0 - I've used the fake products data which is stored in a json file.
+   4.1 - For easy navigation between different pages, I've used react-router.
+   4.2 - For state management I've used context api.
+   4.3 - For DRY code, I've made a custom hook for fetching the products.
+   4.4 - For API fetching, I've used axios.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+5. Snapshot of the application
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Note : Take your time to read the README file and don't forget to give this repo a star!!!
