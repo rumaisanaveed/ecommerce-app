@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import DataContext from "../context/DataContext";
 
-const SearchBox = () => {
+const SearchBox = ({ className }) => {
   const { search, setSearch } = useContext(DataContext);
   return (
     <main className="search-box">

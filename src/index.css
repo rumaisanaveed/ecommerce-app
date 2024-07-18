@@ -21,6 +21,11 @@
   background-color: var(--green);
 }
 
+.dec-btn,
+.inc-btn {
+  cursor: pointer;
+}
+
 .error {
   color: var(--red);
 }
@@ -308,11 +313,13 @@ header {
 .cart-icon-container {
   position: relative;
   text-align: right;
+  cursor: pointer;
 }
 
 .cart-icon {
   color: var(--green);
   font-size: 1.5em;
+  cursor: pointer;
 }
 
 .cart-items-count {
@@ -389,6 +396,7 @@ header {
   background-color: var(--white);
   color: var(--black);
   margin-top: 0.2em;
+  cursor: pointer;
 }
 
 .cart-msg {
@@ -470,6 +478,7 @@ header {
   position: absolute;
   right: 5%;
   top: 10%;
+  cursor: pointer;
 }
 
 .price-container {
@@ -522,7 +531,7 @@ header {
   width: 100%;
   min-height: 30px;
   font-size: 1rem;
-  padding: 0.25rem;
+  padding: 0.7rem;
   border: 1px solid gray;
   border-radius: 0.25rem;
 }
@@ -754,6 +763,7 @@ footer {
   padding: 0.2em 0.5em 0.2em 0.5em;
   border: 3px solid var(--green);
   border-radius: 5px;
+  cursor: pointer;
 }
 
 /* 404 Page */
@@ -1209,6 +1219,24 @@ select {
   text-align: center;
 }
 
+.mobile-search-box {
+  margin: 20px;
+  transition: all 2s linear 1s;
+}
+
+.mobile-search-input {
+  width: 70%;
+}
+
+.primary-btn {
+  padding: 20px;
+  color: white;
+  background-color: var(--green);
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+}
+
 @media only screen and (max-width: 999px) {
   .final-order-msg-container {
     padding: 2rem;
@@ -1237,9 +1265,9 @@ select {
     width: 100%;
   }
 
-  .search-box {
+  /* .search-box {
     display: none;
-  }
+  } */
 
   header {
     padding: 1rem;
@@ -1289,9 +1317,9 @@ select {
 }
 
 @media only screen and (max-width: 700px) {
-  .search-box-container {
+  /* .search-box-container {
     display: none;
-  }
+  } */
 
   /* Product page */
 

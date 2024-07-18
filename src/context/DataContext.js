@@ -12,11 +12,10 @@ export const DataProvider = ({ children }) => {
   const [filterToiletries, setFilteredToiletries] = useState([]);
   const [searchToiletries, setSearchToiletries] = useState([]);
 
-  const { data, fetchError, isLoading } = useAxiosFetch(
-    "http://localhost:3500/items"
-  );
+  const { data, fetchError, isLoading } = useAxiosFetch();
 
   useEffect(() => {
+    // console.log(data);
     setProducts(data);
   }, [data]);
 

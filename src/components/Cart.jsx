@@ -3,6 +3,7 @@ import { useContext, useState, useEffect } from "react";
 import CartItem from "./CartItem";
 import CheckOutBtn from "./buttons/CheckOutBtn";
 import CartContext from "../context/CartContext";
+import Button from "./buttons/Button";
 
 const Cart = () => {
   // Handling the cart close and open
@@ -72,6 +73,7 @@ const Cart = () => {
                     </div>
                     <div className="cart-btns">
                       <CheckOutBtn />
+                      {/* <Button className="checkout">Checkout</Button> */}
                     </div>
                   </div>
                 </div>

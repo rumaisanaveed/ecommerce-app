@@ -1,11 +1,12 @@
 import { useContext, useState } from "react"; // Import React and useState (if not already imported)
 import logo from "../components/logo.svg";
 import { HiOutlineMenu } from "react-icons/hi";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { RiShoppingBasketLine } from "react-icons/ri";
 import CartContext from "../context/CartContext";
 import SearchBox from "../components/searchBox";
 import { IoSearch } from "react-icons/io5";
+import useScreenSize from "../hooks/useScreenSize";
 
 const Header = () => {
   const { cartData, toggleCartVisibility } = useContext(CartContext);
@@ -16,6 +17,7 @@ const Header = () => {
   // To handle mobile menu button
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [showSearchBar, setShowSearchBar] = useState(false);
+  const isSmallScreen = useScreenSize();
 
   return (
     <>
@@ -27,16 +29,32 @@ const Header = () => {
         </div>
 
         <nav className={showMobileMenu ? "mobile-menu" : "navbar"}>
-          <Link to="/home" className="link">
+          <Link
+            to="/home"
+            className="link"
+            onClick={() => setShowMobileMenu(false)}
+          >
             Everything
           </Link>
-          <Link to="/groceries" className="link">
+          <Link
+            to="/groceries"
+            className="link"
+            onClick={() => setShowMobileMenu(false)}
+          >
             Groceries
           </Link>
-          <Link to="/toiletries" className="link">
+          <Link
+            to="/toiletries"
+            className="link"
+            onClick={() => setShowMobileMenu(false)}
+          >
             Toiletries
           </Link>
-          <Link to="/about" className="link">
+          <Link
+            to="/about"
+            className="link"
+            onClick={() => setShowMobileMenu(false)}
+          >
             About
           </Link>
         </nav>
@@ -44,7 +62,7 @@ const Header = () => {
         <div className="mobile-right-nav">
           <div className="header-right">
             <div className="nav-right-search">
-              <SearchBox />
+              {!isSmallScreen && <SearchBox />}
             </div>
             <div className="cart-icon-container" onClick={toggleCartVisibility}>
               <RiShoppingBasketLine className="cart-icon" />
@@ -57,9 +75,6 @@ const Header = () => {
             onClick={() => setShowSearchBar(!showSearchBar)}
           >
             <IoSearch />
-            <div className={showSearchBar ? "mobile-searchbar" : ""}>
-              <SearchBox />
-            </div>
           </div>
 
           <div className="menu-icon">
@@ -67,6 +82,11 @@ const Header = () => {
           </div>
         </div>
       </header>
+      {isSmallScreen && showSearchBar && (
+        <div className="mobile-search-box">
+          <SearchBox className="mobile-search-input" />
+        </div>
+      )}
     </>
   );
 };

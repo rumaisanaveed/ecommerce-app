@@ -8,11 +8,11 @@ const ProductPage = () => {
   const { searchResults, filterGroceries, searchToiletries } =
     useContext(DataContext);
 
-  const { cartData, setCartData } = useContext(CartContext);
+  // const { cartData, setCartData } = useContext(CartContext);
 
   // Checking the current page
   const { title } = useParams();
-  // console.log(title);
+  console.log(title);
   const isHomePage =
     !title.includes("groceries") && !title.includes("toiletries");
   const isGroceriesPage = title.includes("groceries");
