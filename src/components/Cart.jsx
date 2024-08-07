@@ -1,13 +1,13 @@
 import { RxCross1 } from "react-icons/rx";
-import { useContext, useState, useEffect } from "react";
+import { useContext, useEffect, useCallback } from "react";
 import CartItem from "./CartItem";
 import CheckOutBtn from "./buttons/CheckOutBtn";
 import CartContext from "../context/CartContext";
-import Button from "./buttons/Button";
 
 const Cart = () => {
   // Handling the cart close and open
-  const [isCartClosed, setIsCartClosed] = useState(true);
+  const { isCartClosed, setIsCartClosed } = useContext(CartContext);
+
   const hideCart = () => {
     setIsCartClosed(false);
   };
@@ -16,17 +16,22 @@ const Cart = () => {
   const { CARTDATA, setCARTDATA, cartData, totalCartPrice, setTotalCartPrice } =
     useContext(CartContext);
 
-  // Cart total amount
-
-  const totalPrice = CARTDATA.reduce(
-    (acc, dataItem) => acc + dataItem.quantity * parseFloat(dataItem.price),
-    0
-  );
-  setTotalCartPrice(totalPrice);
+  // Calculate total price using useCallback to memoize the function
+  const calculateTotalPrice = useCallback(() => {
+    const totalPrice = CARTDATA.reduce(
+      (acc, dataItem) => acc + dataItem.quantity * parseFloat(dataItem.price),
+      0
+    );
+    setTotalCartPrice(totalPrice);
+  }, [CARTDATA, setTotalCartPrice]);
 
   useEffect(() => {
     setCARTDATA(cartData);
-  }, [cartData]);
+  }, [cartData, setCARTDATA]);
+
+  useEffect(() => {
+    calculateTotalPrice();
+  }, [CARTDATA, calculateTotalPrice]);
 
   return (
     <>
@@ -52,18 +57,16 @@ const Cart = () => {
               <>
                 <div className="cart-body">
                   {CARTDATA &&
-                    CARTDATA.map((item, cartIndex) => {
-                      return (
-                        <CartItem
-                          key={cartIndex}
-                          cartIndex={cartIndex}
-                          productImg={item.image}
-                          productName={item.title}
-                          productPrice={item.price}
-                          productCount={parseInt(item.quantity)}
-                        />
-                      );
-                    })}
+                    CARTDATA.map((item, cartIndex) => (
+                      <CartItem
+                        key={cartIndex}
+                        cartIndex={cartIndex}
+                        productImg={item.image}
+                        productName={item.title}
+                        productPrice={item.price}
+                        productCount={parseInt(item.quantity)}
+                      />
+                    ))}
                 </div>
                 <div className="last-row-wrapper">
                   <div className="cart-last-row">

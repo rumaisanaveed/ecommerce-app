@@ -1,10 +1,14 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const CheckOutBtn = () => {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/checkout");
+  };
   return (
-    <Link to="/checkout" className="checkout-btn">
+    <button onClick={handleClick} className="checkout-btn">
       Checkout
-    </Link>
+    </button>
   );
 };
 

@@ -35,12 +35,13 @@ const Checkout = () => {
   useEffect(() => {
     if (Object.keys(formErrors).length === 0 && isFormSubmit) {
       console.log(formValues);
+      // Reset isFormSubmit to false to avoid infinite loop
+      setIsFormSubmit(false);
     }
-  }, [formErrors]);
+  }, [formErrors, formValues, isFormSubmit]);
 
   const validate = (values) => {
     const errors = {};
-    const emailRegex = /^[^\s@]+[^\s@]+\.[^\s@]{2,}$/i;
     const phoneRegex = /^\+?[0-9()-\s]*$/;
     if (!values.firstname) {
       errors.firstname = "First name is a required field";

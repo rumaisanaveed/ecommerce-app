@@ -10,7 +10,7 @@ const CartItem = ({
   productCount,
 }) => {
   // Handling the deletion of a product from the cart
-  const { setCartData, CARTDATA, setCARTDATA } = useContext(CartContext);
+  const { CARTDATA, setCARTDATA } = useContext(CartContext);
 
   const handleItemDelete = (productName) => {
     // console.log(productName);

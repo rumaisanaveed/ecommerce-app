@@ -2,7 +2,6 @@ import { useParams } from "react-router-dom";
 import AddToCartBtn from "../components/buttons/AddToCartBtn";
 import { useContext } from "react";
 import DataContext from "../context/DataContext";
-import CartContext from "../context/CartContext";
 
 const ProductPage = () => {
   const { searchResults, filterGroceries, searchToiletries } =

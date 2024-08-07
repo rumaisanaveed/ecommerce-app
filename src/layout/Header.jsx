@@ -1,7 +1,7 @@
 import { useContext, useState } from "react"; // Import React and useState (if not already imported)
 import logo from "../components/logo.svg";
 import { HiOutlineMenu } from "react-icons/hi";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { RiShoppingBasketLine } from "react-icons/ri";
 import CartContext from "../context/CartContext";
 import SearchBox from "../components/searchBox";

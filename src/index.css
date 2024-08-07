@@ -506,6 +506,7 @@ header {
   border: 2px solid var(--green);
   border-radius: 5px;
   margin: 1.5em 1em 1em 1em;
+  cursor: pointer;
 }
 
 .checkout-btn,

@@ -14,6 +14,7 @@ export const CartContextProvider = ({ children }) => {
   const [noOfCartItems, setNoOfCartItems] = useState(0);
   // Cart total price
   const [totalCartPrice, setTotalCartPrice] = useState(0);
+  const [isCartClosed, setIsCartClosed] = useState(true);
 
   // Function to toggle the visibility of the Cart component
   const toggleCartVisibility = () => {
@@ -37,6 +38,8 @@ export const CartContextProvider = ({ children }) => {
         toggleCartVisibility,
         totalCartPrice,
         setTotalCartPrice,
+        isCartClosed,
+        setIsCartClosed,
       }}
     >
       {children}
