@@ -8,6 +8,7 @@ const Home = () => {
 
   return (
     <main className="home">
+      <p>Rumaisa</p>
       {!isLoading && !fetchError && searchResults.length ? (
         <Products
           search={search}
