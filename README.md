@@ -85,4 +85,4 @@ I learned alot btw and also faced many challenges along the way because as a beg
    ```  
 ---
 
-⭐ **Note**: Take your time to explore the app at https://, and don't forget to give this repo a star!  
+⭐ **Note**: Take your time to explore the app at https://organic-ecommerce-store.netlify.app/, and don't forget to give this repo a star!  
